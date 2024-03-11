@@ -7,16 +7,36 @@ license = "MPL-2.0"
 
 [tool.poetry.dependencies]
 python = "^3.8,<3.13"
-# Installing them from here won't work
-#aw-core = {path = "aw-core"}
-#aw-client = {path = "aw-client"}
-#aw-watcher-afk = {path = "aw-watcher-afk"}
-#aw-watcher-window = {path = "aw-watcher-window"}
-#aw-server = {path = "aw-server"}
-#aw-qt = {path = "aw-qt"}
-
-# https://github.com/ionrock/cachecontrol/issues/292
+# Dependencies
 urllib3 = "<2"
+requests = "*"
+click = "^8.0"
+tabulate = "*"
+typing-extensions = "*"
+
+[sd-client]
+path = "sd-client"  # Path to the sd-client directory relative to your project root
+
+[sd-core]
+path = "sd-core"
+
+[sd-notify]
+path = "sd-notify"
+
+[sd-qt]
+path = "sd-qt"
+
+[sd-server]
+path = "sd-server"
+
+[sd-watcher-afk]
+path = "sd-watcher-afk"
+
+[sd-watcher-input]
+path = "sd-watcher-input"
+
+[sd-watcher-window]
+path = "sd-watcher-window"
 
 [tool.poetry.dev-dependencies]
 mypy = "*"
@@ -26,14 +46,8 @@ pytest-benchmark = "*"
 psutil = "*"
 pywin32-ctypes = {version = "*", platform = "win32"}
 pefile = {version = "*", platform = "win32"}
-
 pyinstaller = "^5.13"
-# releases are very infrequent, so good idea to use the master branch
-# we need this unreleased commit: https://github.com/pyinstaller/pyinstaller-hooks-contrib/commit/0f40dc6e74086e5472aee75070b9077b4c17ab18
 pyinstaller-hooks-contrib = {git = "https://github.com/pyinstaller/pyinstaller-hooks-contrib.git", branch="master"}
-
-# Won't be respected due to https://github.com/python-poetry/poetry/issues/1584
-#setuptools = ">49.1.1"  # needed due to https://github.com/pypa/setuptools/issues/1963
 
 [build-system]
 requires = ["poetry-core"]
